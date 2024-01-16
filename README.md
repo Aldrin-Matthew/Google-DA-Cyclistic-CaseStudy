@@ -57,29 +57,26 @@ Before cleaning the data, I am familiarizing myself with the data to find the in
 Observations:  
 1. The table below shows the . The __ride_id__ column is our primary key.  
 
- !!!!!!  ![image](https://user-images.githubusercontent.com/125132307/226139161-c5209861-7542-4ad6-8d9a-ce0115086e4d.png)  
+ ![image](https://user-images.githubusercontent.com/125132307/226139161-c5209861-7542-4ad6-8d9a-ce0115086e4d.png)  
 
 2.  Note that some columns have same number of missing values. This may be due to missing information in the same row i.e. station's name and id for the same station and latitude and longitude for the same ending station.  
 3. As ride_id has no null values, let's use it to check for duplicates.  
 
    ![image](https://user-images.githubusercontent.com/125132307/226181500-38f9b3ca-811d-4612-87ea-87b6d1d3843e.png)
 
-   There are no __duplicate__ rows in the data.  
+   There are 16 __duplicate__ rows in the data.  
    
-4. All __ride_id__ values have length of 16 so no need to clean it.
-5. There are 3 unique types of bikes(__rideable_type__) in our data.
+4. There are 3 unique types of bikes(__rideable_type__) in our data.
 
    ![image](https://user-images.githubusercontent.com/125132307/226203372-10c60802-0880-4b17-9ac0-2177ab862974.png)
 
-6. The __started_at__ and __ended_at__ shows start and end time of the trip in YYYY-MM-DD hh:mm:ss UTC format. New column ride_length can be created to find the total trip duration. There are 5360 trips which has duration longer than a day and 122283 trips having less than a minute duration or having end time earlier than start time so need to remove them. Other columns day_of_week and month can also be helpful in analysis of trips at different times in a year.
-7. Total of 833064 rows have both __start_station_name__ and __start_station_id__ missing which needs to be removed.  
-8. Total of 892742 rows have both __end_station_name__ and __end_station_id__ missing which needs to be removed.
-9. Total of 5858 rows have both __end_lat__ and __end_lng__ missing which needs to be removed.
-10. __member_casual__ column has 2 uniqued values as member or casual rider.
+5. The __started_at__ and __ended_at__ shows start and end time of the trip in YYYY-MM-DD hh:mm:ss UTC format. New column ride_length can be created to find the total trip duration. There are 5360 trips which has duration longer than a day and 122283 trips having less than a minute duration or having end time earlier than start time so need to remove them. Other columns day_of_week and month can also be helpful in analysis of trips at different times in a year.
+6. Total of 833064 rows have both __start_station_name__ and __start_station_id__ missing which needs to be removed.  
+7. Total of 892742 rows have both __end_station_name__ and __end_station_id__ missing which needs to be removed.
+8. Total of 5858 rows have both __end_lat__ and __end_lng__ missing which needs to be removed.
+9. __member_casual__ column has 2 uniqued values as member or casual rider.
 
     ![image](https://user-images.githubusercontent.com/125132307/226212522-aec43490-5d86-4e2e-a92e-b3bf52050415.png)
-
-11. Columns that need to be removed are start_station_id and end_station_id as they do not add value to analysis of our current problem. Longitude and latitude location columns may not be used in analysis but can be used to visualise a map.
 ----------------------------------------------------------------------------
 ### Data Cleaning
 SQL Query: [Data Cleaning](https://github.com/Aldrin-Matthew/Google-DA-Cyclistic-CaseStudy/blob/main/03.DataCleaning.sql)  
@@ -143,7 +140,21 @@ Summary:
   
 ## Act
 After identifying the differences between casual and member riders, marketing strategies to target casual riders can be developed to persuade them to become members.  
-Recommendations:  
-1. Marketing campaigns might be conducted in spring and summer at tourist/recreational locations popular among casual riders.
-2. Casual riders are most active on weekends and during the summer and spring, thus they may be offered seasonal or weekend-only memberships.
-3. Casual riders use their bikes for longer durations than members. Offering discounts for longer rides may incentivize casual riders and entice members to ride for longer periods of time.
+_Recommendations:_  
+1. Cost Savings:
+
+_Idea:_ Offer a significant cost-saving advantage for annual subscribers compared to casual riders.
+
+_Reasoning:_ Annual subscriptions can be positioned as a more economical option for those who frequently use bikes during weekends and leisure activities. By paying a lower per-ride cost through an annual subscription, casual riders can enjoy the flexibility of bike-sharing at a more affordable rate, making it a financially attractive proposition.
+
+2. Exclusive Weekend Benefits:
+
+_Idea:_ Provide exclusive benefits or bonuses during weekends for annual subscribers.
+
+_Reasoning:_ Since casual riders predominantly use bikes on weekends for leisure activities, create a special weekend-centric incentive for annual subscribers. This could include bonus ride credits, access to premium bikes, or even partnerships with local businesses for discounts during weekend rides. Making weekends more attractive for annual subscribers can sway casual riders towards opting for a yearly plan.
+
+3. Flexible Commuting Package:
+
+_Idea:_ Introduce a flexible package that caters to both leisure and commuting needs.
+
+_Reasoning:_ Recognizing the different usage patterns between casual and annual riders, offer a subscription plan that includes a certain number of weekday commuting rides and additional benefits for weekend leisure rides. This way, annual subscribers can enjoy the best of both worlds – cost-effective commuting during the week and bonus perks for weekend adventures. This dual-purpose subscription can be a compelling reason for casual riders to make the switch.
