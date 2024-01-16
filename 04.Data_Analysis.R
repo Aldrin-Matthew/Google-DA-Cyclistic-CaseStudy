@@ -1,3 +1,4 @@
+# Added clean_combined_data table from SQL in R as "data" and made a bargraph and a pie chart.
 head(data)
 library(ggplot2)
 install.packages("scales")
@@ -61,6 +62,7 @@ ggplot(overall_percentage_data, aes(x = "", y = percentage, fill = member_casual
     size = 4,
     color = "black"
   )
+# Rest of the visualisations are done in Tableau
 #------------------------------------------------------------------------------
 
 
